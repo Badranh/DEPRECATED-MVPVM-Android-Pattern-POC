@@ -1,4 +1,4 @@
-package com.proseccommunity.githubexplore.Dashboard;
+package com.proseccommunity.githubexplore.Dashboard.RepositriesList;
 
 public interface Contract {
 

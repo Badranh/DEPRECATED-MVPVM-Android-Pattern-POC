@@ -9,4 +9,5 @@ import retrofit2.http.Path;
 public interface GithubService {
 
     @GET("repos/{owner}/{name}")
-    Single<GitHubRepository> getRepos(@Path("owner") String owner, @Path("name") String name);}
+    Single<GitHubRepository> getRepos(@Path("owner") String owner, @Path("name") String name);
+}

@@ -1,9 +1,9 @@
-package com.proseccommunity.githubexplore.Dashboard;
+package com.proseccommunity.githubexplore.Dashboard.RepositriesList;
 
 import com.proseccommunity.githubexplore.base.BasePresenter;
-import com.proseccommunity.githubexplore.di.utils.ActivityScoped;
 
-import javax.inject.Inject;public class Presenter implements Contract.Presenter, BasePresenter<Contract.View> {
+import javax.inject.Inject;
+public class Presenter implements Contract.Presenter, BasePresenter<Contract.View> {
 
     private Contract.View view;
 

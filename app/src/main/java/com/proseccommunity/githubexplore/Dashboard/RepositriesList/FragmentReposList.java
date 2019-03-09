@@ -1,4 +1,4 @@
-package com.proseccommunity.githubexplore.Dashboard;
+package com.proseccommunity.githubexplore.Dashboard.RepositriesList;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,12 +10,11 @@ import com.proseccommunity.githubexplore.R;
 import com.proseccommunity.githubexplore.base.BaseFragment;
 import com.proseccommunity.githubexplore.base.BasePresenter;
 import com.proseccommunity.githubexplore.di.utils.ActivityScoped;
-import com.proseccommunity.githubexplore.di.utils.FragmentScoped;
 
 import javax.inject.Inject;
 
 import androidx.annotation.Nullable;
-import dagger.android.AndroidInjection;
+
 @ActivityScoped
 public class FragmentReposList extends BaseFragment implements Contract.View {
 
