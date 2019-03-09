@@ -48,4 +48,6 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:$daggerVersion"
     annotationProcessor "com.google.dagger:dagger-android-processor:$daggerVersion"
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'org.projectlombok:lombok:1.18.4'
+    annotationProcessor  'org.projectlombok:lombok:1.18.4'
 }

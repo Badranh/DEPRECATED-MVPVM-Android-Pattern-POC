@@ -1,13 +1,17 @@
 package com.proseccommunity.githubexplore.Dashboard.RepositriesList;
 
 import android.annotation.SuppressLint;
+
 import com.proseccommunity.githubexplore.Dashboard.RepositriesList.Adapter.RepoAdapter;
 import com.proseccommunity.githubexplore.base.BasePresenter;
 import com.proseccommunity.githubexplore.data.api.DataRepository;
 import com.proseccommunity.githubexplore.data.models.GitHubRepository;
 import com.proseccommunity.githubexplore.di.utils.ActivityScoped;
+
 import java.util.List;
+
 import javax.inject.Inject;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableSingleObserver;
@@ -21,7 +25,7 @@ public class Presenter implements Contract.Presenter, BasePresenter<Contract.Vie
     @Inject
     DataRepository dataRepository;
 
-    CompositeDisposable disposable = new CompositeDisposable();
+    private CompositeDisposable disposable = new CompositeDisposable();
 
     private Contract.View view;
 
@@ -68,7 +72,7 @@ public class Presenter implements Contract.Presenter, BasePresenter<Contract.Vie
     @Override
     public void bindViewHolders(RepoAdapter.ViewHolder holder, int pos) {
         if(viewModel.getRepos().getValue()!=null && holder.Reponame !=null)
-            holder.Reponame.setText(viewModel.getRepos().getValue().get(pos).name);
+            holder.Reponame.setText(viewModel.getRepos().getValue().get(pos).getName());
     }
 
     @Override

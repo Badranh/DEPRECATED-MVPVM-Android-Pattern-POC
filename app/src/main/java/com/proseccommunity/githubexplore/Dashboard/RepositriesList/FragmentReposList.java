@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
 import com.proseccommunity.githubexplore.Dashboard.RepositriesList.Adapter.RepoAdapter;
 import com.proseccommunity.githubexplore.Factories.ViewModelFactory;
 import com.proseccommunity.githubexplore.R;
@@ -26,6 +27,7 @@ public class FragmentReposList extends BaseFragment implements Contract.View {
     @Inject
     ViewModelFactory viewModelFactory;
 
+    //Scoping Purposes Only
     @Inject
     ViewModelFactory viewModelFactory2;
 
@@ -36,10 +38,10 @@ public class FragmentReposList extends BaseFragment implements Contract.View {
     RepositiriesViewModel viewModel;
 
     @Inject
-    RepoAdapter repoAdapter ;
+    RepoAdapter repoAdapter;
 
-    @BindView
-   (R.id.recycler) RecyclerView recyclerView;
+    @BindView(R.id.recycler)
+    RecyclerView recyclerView;
 
     @BindView(R.id.loading_view)
     ProgressBar progressBar;

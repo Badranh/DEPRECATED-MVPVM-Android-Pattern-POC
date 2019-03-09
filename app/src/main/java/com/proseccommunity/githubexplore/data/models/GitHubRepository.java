@@ -1,23 +1,27 @@
 package com.proseccommunity.githubexplore.data.models;
 import com.google.gson.annotations.SerializedName;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class GitHubRepository {
 
-    public final long id;
-    public final String name;
-    public final String desc;
-    public final GitUser owner;
+    private final long id;
+    private final String name;
+    private final String desc;
     @SerializedName("stargazers_count")
-    public final long stars;
+    private final long stars;
     @SerializedName("forks_count")
-    public final long forks;
+    private final long forks;
 
-    public GitHubRepository(long id, String name, String description, GitUser owner, long stars, long forks) {
+    public GitHubRepository(long id, String name, String description, long stars, long forks) {
         this.id = id;
         this.name = name;
         this.desc = description;
-        this.owner = owner;
         this.stars = stars;
         this.forks = forks;
     }
+
 }
