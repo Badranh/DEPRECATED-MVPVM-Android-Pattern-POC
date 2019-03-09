@@ -1,16 +1,12 @@
 package com.proseccommunity.githubexplore.Dashboard.RepositriesList;
 
 import android.annotation.SuppressLint;
-import android.util.Log;
-
 import com.proseccommunity.githubexplore.Dashboard.RepositriesList.Adapter.RepoAdapter;
 import com.proseccommunity.githubexplore.base.BasePresenter;
 import com.proseccommunity.githubexplore.data.api.DataRepository;
 import com.proseccommunity.githubexplore.data.models.GitHubRepository;
 import com.proseccommunity.githubexplore.di.utils.ActivityScoped;
 import java.util.List;
-import java.util.Objects;
-
 import javax.inject.Inject;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -20,8 +16,7 @@ import io.reactivex.schedulers.Schedulers;
 @ActivityScoped
 public class Presenter implements Contract.Presenter, BasePresenter<Contract.View> {
 
-    @Inject
-    RepositiriesViewModel viewModel;
+    private RepositiriesViewModel viewModel;
 
     @Inject
     DataRepository dataRepository;

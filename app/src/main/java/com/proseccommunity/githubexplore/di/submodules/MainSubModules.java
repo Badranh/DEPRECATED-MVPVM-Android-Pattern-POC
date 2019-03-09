@@ -4,7 +4,6 @@ import com.proseccommunity.githubexplore.Dashboard.RepositriesList.Contract;
 import com.proseccommunity.githubexplore.Dashboard.RepositriesList.FragmentReposList;
 import com.proseccommunity.githubexplore.Dashboard.RepositriesList.Presenter;
 import com.proseccommunity.githubexplore.di.utils.ActivityScoped;
-
 import dagger.Binds;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -21,10 +20,6 @@ public abstract class MainSubModules {
 
     @ContributesAndroidInjector
     abstract FragmentReposList myFragment();
-
-
-
-
 
 
 }

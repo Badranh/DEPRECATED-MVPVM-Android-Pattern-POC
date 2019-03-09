@@ -16,7 +16,6 @@ import com.proseccommunity.githubexplore.di.utils.ActivityScoped;
 import javax.inject.Inject;
 
 import androidx.annotation.Nullable;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
@@ -28,13 +27,16 @@ public class FragmentReposList extends BaseFragment implements Contract.View {
     ViewModelFactory viewModelFactory;
 
     @Inject
+    ViewModelFactory viewModelFactory2;
+
+    @Inject
     Contract.Presenter presenter;
 
     @Inject
     RepositiriesViewModel viewModel;
 
-
-    private RepoAdapter repoAdapter ;
+    @Inject
+    RepoAdapter repoAdapter ;
 
     @BindView
    (R.id.recycler) RecyclerView recyclerView;
@@ -65,7 +67,6 @@ public class FragmentReposList extends BaseFragment implements Contract.View {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        repoAdapter = new RepoAdapter(presenter);
         ((BasePresenter<Contract.View>) presenter).AssignView(this);
         recyclerView.setAdapter(repoAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

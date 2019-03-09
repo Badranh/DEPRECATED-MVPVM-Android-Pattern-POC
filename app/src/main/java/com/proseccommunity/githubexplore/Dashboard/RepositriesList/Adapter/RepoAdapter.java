@@ -7,19 +7,26 @@ import android.widget.TextView;
 
 import com.proseccommunity.githubexplore.Dashboard.RepositriesList.Contract;
 import com.proseccommunity.githubexplore.R;
+import com.proseccommunity.githubexplore.di.utils.ActivityScoped;
+
+import javax.inject.Inject;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import butterknife.BindView;
 
-public class RepoAdapter extends RecyclerView.Adapter<RepoAdapter.ViewHolder>  {
+@ActivityScoped
+public class RepoAdapter extends  RecyclerView.Adapter<RepoAdapter.ViewHolder>  {
 
 
-    private Contract.Presenter presenter;
 
-    public RepoAdapter(Contract.Presenter presenter) {
-        this.presenter = presenter;
+    @Inject
+    Contract.Presenter presenter;
+
+    @Inject
+    public RepoAdapter() {
     }
+
+
 
     @NonNull
     @Override
