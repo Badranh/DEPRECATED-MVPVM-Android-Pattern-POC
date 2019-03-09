@@ -4,8 +4,10 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
-
+import com.proseccommunity.githubexplore.Dashboard.RepositriesList.Adapter.RepoAdapter;
+import com.proseccommunity.githubexplore.Factories.ViewModelFactory;
 import com.proseccommunity.githubexplore.R;
 import com.proseccommunity.githubexplore.base.BaseFragment;
 import com.proseccommunity.githubexplore.base.BasePresenter;
@@ -14,12 +16,31 @@ import com.proseccommunity.githubexplore.di.utils.ActivityScoped;
 import javax.inject.Inject;
 
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import butterknife.BindView;
 
 @ActivityScoped
 public class FragmentReposList extends BaseFragment implements Contract.View {
 
     @Inject
+    ViewModelFactory viewModelFactory;
+
+    @Inject
     Contract.Presenter presenter;
+
+    @Inject
+    RepositiriesViewModel viewModel;
+
+
+    private RepoAdapter repoAdapter ;
+
+    @BindView
+   (R.id.recycler) RecyclerView recyclerView;
+
+    @BindView(R.id.loading_view)
+    ProgressBar progressBar;
 
     @Override
     public void onResume() {
@@ -44,9 +65,12 @@ public class FragmentReposList extends BaseFragment implements Contract.View {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        repoAdapter = new RepoAdapter(presenter);
         ((BasePresenter<Contract.View>) presenter).AssignView(this);
-        Log.d("Scopes","frag"+presenter.hashCode());
-        presenter.calculate(4,3);
+        recyclerView.setAdapter(repoAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        observableViewModel();
+        presenter.fetchData();
     }
 
     @Override
@@ -58,6 +82,26 @@ public class FragmentReposList extends BaseFragment implements Contract.View {
     public void onDestroyView() {
         super.onDestroyView();
         ((BasePresenter<Contract.View>) presenter).RemoveView();
+    }
 
+    private void observableViewModel() {
+        viewModel.getRepos().observe(this, repos -> {
+            if(repos != null) {
+                Log.d("downlaz","asd");
+                repoAdapter.notifyDataSetChanged();
+            }
+        });
+
+        viewModel.getGotAnError().observe(this, isError -> {
+            if (isError != null) if(isError) {
+                showToast("Error Loading Repos");
+            }
+        });
+
+        viewModel.getIsLoading().observe(this, isLoading -> {
+            if (isLoading != null) {
+                progressBar.setVisibility(isLoading ? View.VISIBLE : View.GONE);
+            }
+        });
     }
 }

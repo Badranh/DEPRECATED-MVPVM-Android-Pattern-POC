@@ -1,5 +1,7 @@
 package com.proseccommunity.githubexplore.Dashboard.RepositriesList;
 
+import com.proseccommunity.githubexplore.Dashboard.RepositriesList.Adapter.RepoAdapter;
+
 public interface Contract {
 
     interface View{
@@ -7,6 +9,8 @@ public interface Contract {
     }
 
     interface Presenter{
-        int calculate(int a, int b);
+        void fetchData();
+        void bindViewHolders(RepoAdapter.ViewHolder holder,int pos);
+        int getDataCount();
     }
 }

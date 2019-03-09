@@ -2,6 +2,8 @@ package com.proseccommunity.githubexplore.data.api;
 
 import com.proseccommunity.githubexplore.data.models.GitHubRepository;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import io.reactivex.Single;
@@ -16,7 +18,7 @@ public class DataRepository {
     }
 
 
-    public Single<GitHubRepository> getRepo(String owner, String name) {
-        return gitService.getRepos(owner, name);
+    public Single<List<GitHubRepository>> getRepo(String owner) {
+        return gitService.getRepos(owner);
     }
 }

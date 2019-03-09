@@ -6,6 +6,7 @@ import android.app.Application;
 import com.proseccommunity.githubexplore.base.BaseApplication;
 import com.proseccommunity.githubexplore.di.modules.ActivityBindingModule;
 import com.proseccommunity.githubexplore.di.modules.ApplicationModule;
+import com.proseccommunity.githubexplore.di.modules.ViewModelModule;
 
 import javax.inject.Singleton;
 
@@ -16,6 +17,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
 
 @Singleton
 @Component(modules = {
+        ViewModelModule.class,
         ApplicationModule.class,
         ActivityBindingModule.class,
         AndroidSupportInjectionModule.class})
