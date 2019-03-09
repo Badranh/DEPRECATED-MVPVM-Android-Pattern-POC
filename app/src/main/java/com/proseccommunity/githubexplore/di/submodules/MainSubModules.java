@@ -1,10 +1,9 @@
 package com.proseccommunity.githubexplore.di.submodules;
 
 import com.proseccommunity.githubexplore.Dashboard.Contract;
-import com.proseccommunity.githubexplore.Dashboard.MyFragment;
+import com.proseccommunity.githubexplore.Dashboard.FragmentReposList;
 import com.proseccommunity.githubexplore.Dashboard.Presenter;
 import com.proseccommunity.githubexplore.di.utils.ActivityScoped;
-import com.proseccommunity.githubexplore.di.utils.FragmentScoped;
 
 import dagger.Binds;
 import dagger.Module;
@@ -21,7 +20,7 @@ public abstract class MainSubModules {
 
 
     @ContributesAndroidInjector
-    abstract MyFragment myFragment();
+    abstract FragmentReposList myFragment();
 
 
 

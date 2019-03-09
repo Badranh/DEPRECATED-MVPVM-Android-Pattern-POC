@@ -17,7 +17,7 @@ import javax.inject.Inject;
 import androidx.annotation.Nullable;
 import dagger.android.AndroidInjection;
 @ActivityScoped
-public class MyFragment extends BaseFragment implements Contract.View {
+public class FragmentReposList extends BaseFragment implements Contract.View {
 
     @Inject
     Contract.Presenter presenter;
@@ -28,7 +28,7 @@ public class MyFragment extends BaseFragment implements Contract.View {
     }
 
     @Inject
-    public MyFragment() {
+    public FragmentReposList() {
     }
 
     @Override
